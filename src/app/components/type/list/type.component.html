@@ -1,0 +1,24 @@
+<h3>Types</h3>
+<button type="button" routerLink="/add-type" class="btn waves-effect">Add</button>
+<table class="bordered striped">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>French title</th>
+    <th>Dutch title</th>
+    <th>Parent</th>
+    <th>Ordering</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let type of itemsObs | async">
+    <td>{{type.name}}</td>
+    <td>{{type.title_fr}}</td>
+    <td>{{type.title_nl}}</td>
+    <td>{{type.parent}}</td>
+    <td>{{type.sortby}}</td>
+    <td><a href [routerLink]="['/edit-type', type.$key]">Edit</a> - <a href (click)="delete($event, type.$key)">Delete</a></td>
+  </tr>
+  </tbody>
+</table>

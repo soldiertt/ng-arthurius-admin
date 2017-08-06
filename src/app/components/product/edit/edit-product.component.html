@@ -1,0 +1,73 @@
+<h3>Product</h3>
+<div *ngIf="item">
+  <form (ngSubmit)="save(f)" #f="ngForm">
+    <div class="row">
+      <div class="col s6">
+        <div>
+          <label for="type">Type *</label>
+          <select id="type" name="type" [(ngModel)]="item.type" required="required" class="browser-default">
+            <option *ngFor="let type of types" [value]="type">{{type}}</option>
+          </select>
+        </div>
+        <div class="input-field">
+          <input type="text" id="brand" name="brand" [(ngModel)]="item.brand" required="required" class="validate">
+          <label [class.active]="item.brand" for="brand" data-error="required">Brand *</label>
+        </div>
+        <div class="input-field">
+          <input type="text" id="name" name="name" [(ngModel)]="item.name" required="required" class="validate">
+          <label [class.active]="item.name" for="name" data-error="required">Name *</label>
+        </div>
+        <div class="input-field">
+          <textarea id="description" name="description" [(ngModel)]="item.description" class="materialize-textarea"></textarea>
+          <label [class.active]="item.description" for="description">Description</label>
+        </div>
+        <div class="input-field">
+          <input type="text" id="picture" name="picture" [(ngModel)]="item.picture">
+          <label [class.active]="item.picture" for="picture">Picture</label>
+        </div>
+        <div class="input-field">
+          <input type="text" id="handle" name="handle" [(ngModel)]="item.handle">
+          <label [class.active]="item.handle" for="handle">Handle</label>
+        </div>
+        <div class="input-field">
+          <input type="text" id="steel" name="steel" [(ngModel)]="item.steel">
+          <label [class.active]="item.steel" for="steel">Steel</label>
+        </div>
+      </div>
+      <div class="col s6">
+        <div class="input-field">
+          <input type="text" id="size" name="size" [(ngModel)]="item.size">
+          <label [class.active]="item.size" for="size">Size</label>
+        </div>
+        <div class="input-field">
+          <input type="text" id="youtube_ref" name="youtube_ref" [(ngModel)]="item.youtube_ref">
+          <label [class.active]="item.youtube_ref" for="youtube_ref">Youtube ID</label>
+        </div>
+        <div class="input-field">
+          <input type="number" id="price" name="price" [(ngModel)]="item.price" required="required" class="validate">
+          <label [class.active]="item.price" for="price" data-error="required">Price *</label>
+        </div>
+        <div class="input-field">
+          <input type="number" id="old_price" name="old_price" [(ngModel)]="item.old_price">
+          <label [class.active]="item.old_price" for="old_price">Old price</label>
+        </div>
+        <div class="input-field">
+          <textarea id="comment" name="comment" [(ngModel)]="item.comment" class="materialize-textarea"></textarea>
+          <label [class.active]="item.comment" for="comment">Comment</label>
+        </div>
+        <p>
+          <input type="checkbox" id="promo" name="promo" [(ngModel)]="item.promo">
+          <label [class.active]="item.promo" for="promo">Promo</label>
+        </p>
+        <p>
+          <input type="checkbox" id="in_stock" name="in_stock" [(ngModel)]="item.in_stock">
+          <label [class.active]="item.in_stock" for="in_stock">In stock</label>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <button type="button" class="waves-effect btn grey" routerLink="/products">Cancel</button>
+      <button type="submit" class="waves-effect btn">Save</button>
+    </div>
+  </form>
+</div>

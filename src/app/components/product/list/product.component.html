@@ -1,0 +1,40 @@
+<h3>Products</h3>
+<button type="button" routerLink="/add-product" class="btn waves-effect">Add</button>
+<table class="bordered striped">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Brand</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Promo</th>
+      <th>In stock</th>
+      <th>Actions</th>
+    </tr>
+    <tr>
+      <td>
+        <select name="typefilter" id="typefilter" class="browser-default" (change)="filter()" [(ngModel)]="typeFilter">
+          <option value="">[Select a type]</option>
+          <option *ngFor="let type of types" [value]="type">{{type}}</option>
+        </select>
+      </td>
+      <td>
+        <select name="brandfilter" id="brandfilter" class="browser-default" (change)="filter()" [(ngModel)]="brandFilter">
+          <option value="">[Select a brand]</option>
+          <option *ngFor="let brand of brands" [value]="brand">{{brand}}</option>
+        </select>
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of itemsObs | async">
+      <td>{{product.type}}</td>
+      <td>{{product.brand}}</td>
+      <td>{{product.name}}</td>
+      <td>{{product.price}}</td>
+      <td>{{product.promo}}</td>
+      <td>{{product.in_stock}}</td>
+      <td><a href [routerLink]="['/edit-product', product.$key]">Edit</a> - <a href (click)="delete($event, product.$key)">Delete</a></td>
+    </tr>
+  </tbody>
+</table>

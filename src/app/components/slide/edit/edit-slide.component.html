@@ -1,0 +1,29 @@
+<h3>Slide</h3>
+<div *ngIf="item">
+  <form (ngSubmit)="save(f.valid)" #f="ngForm">
+    <div class="input-field">
+      <input type="text" id="image" name="image" [(ngModel)]="item.image" required="required" class="validate">
+      <label [class.active]="item.image" for="image" data-error="required">Image *</label>
+    </div>
+    <div class="input-field">
+      <input type="text" id="title1" name="title1" [(ngModel)]="item.title1">
+      <label [class.active]="item.title1" for="title1">Title 1</label>
+    </div>
+    <div class="input-field">
+      <input type="text" id="title2" name="title2" [(ngModel)]="item.title2">
+      <label [class.active]="item.title2" for="title2">Title 2</label>
+    </div>
+    <div class="input-field">
+      <textarea id="description" name="description" [(ngModel)]="item.description" class="materialize-textarea"></textarea>
+      <label [class.active]="item.description" for="description">Description</label>
+    </div>
+    <div class="input-field">
+      <input type="text" id="link" name="link" [(ngModel)]="item.link">
+      <label [class.active]="item.link" for="link">Link</label>
+    </div>
+    <div>
+      <button type="button" class="waves-effect btn grey" routerLink="/slides">Cancel</button>
+      <button type="submit" class="waves-effect btn">Save</button>
+    </div>
+  </form>
+</div>

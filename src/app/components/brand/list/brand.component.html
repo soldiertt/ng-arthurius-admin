@@ -1,0 +1,17 @@
+<h3>Slides</h3>
+<button type="button" routerLink="/add-brand" class="btn waves-effect">Add</button>
+<table class="bordered striped">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let brand of itemsObs | async">
+    <td>{{brand.name}}</td>
+    <td><a href (click)="delete($event, brand.$key)">Delete</a></td>
+  </tr>
+  </tbody>
+</table>
+

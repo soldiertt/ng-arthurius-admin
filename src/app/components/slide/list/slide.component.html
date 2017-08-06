@@ -1,0 +1,25 @@
+<h3>Slides</h3>
+<button type="button" routerLink="/add-slide" class="btn waves-effect">Add</button>
+<table class="bordered striped">
+  <thead>
+  <tr>
+    <th>Image</th>
+    <th>Title 1</th>
+    <th>Title 2</th>
+    <th>Description</th>
+    <th>Link</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let slide of itemsObs | async">
+    <td>{{slide.image}}</td>
+    <td>{{slide.title1}}</td>
+    <td>{{slide.title2}}</td>
+    <td>{{slide.description}}</td>
+    <td>{{slide.link}}</td>
+    <td><a href [routerLink]="['/edit-slide', slide.$key]">Edit</a> - <a href (click)="delete($event, slide.$key)">Delete</a></td>
+  </tr>
+  </tbody>
+</table>
+

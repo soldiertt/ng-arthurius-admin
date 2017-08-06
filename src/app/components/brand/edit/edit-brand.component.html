@@ -1,0 +1,13 @@
+<h3>Brand</h3>
+<div *ngIf="item">
+  <form (ngSubmit)="save(f.valid)" #f="ngForm">
+    <div class="input-field">
+      <input type="text" id="name" name="name" [(ngModel)]="item.name" required="required" class="validate">
+      <label [class.active]="item.name" for="name" data-error="required">Name *</label>
+    </div>
+    <div>
+      <button type="button" class="waves-effect btn grey" routerLink="/brands">Cancel</button>
+      <button type="submit" class="waves-effect btn">Save</button>
+    </div>
+  </form>
+</div>

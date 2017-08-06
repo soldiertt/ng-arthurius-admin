@@ -1,0 +1,29 @@
+<h3>Type</h3>
+<div *ngIf="item">
+  <form (ngSubmit)="save(f.valid)" #f="ngForm">
+    <div class="input-field">
+      <input type="text" id="name" name="name" [(ngModel)]="item.name" required="required" class="validate">
+      <label [class.active]="item.name" for="name" data-error="required">Name *</label>
+    </div>
+    <div class="input-field">
+      <input type="text" id="title_fr" name="title_fr" [(ngModel)]="item.title_fr" required="required" class="validate">
+      <label [class.active]="item.title_fr" for="title_fr" data-error="required">French title *</label>
+    </div>
+    <div class="input-field">
+      <input type="text" id="title_nl" name="title_nl" [(ngModel)]="item.title_nl" required="required" class="validate">
+      <label [class.active]="item.title_nl" for="title_nl" data-error="required">Dutch title *</label>
+    </div>
+    <div class="input-field">
+      <input type="text" id="parent" name="parent" [(ngModel)]="item.parent">
+      <label [class.active]="item.parent" for="parent">Parent type</label>
+    </div>
+    <div class="input-field">
+      <input type="number" id="sortby" name="sortby" [(ngModel)]="item.sortby">
+      <label [class.active]="item.sortby" for="sortby">Tri</label>
+    </div>
+    <div>
+      <button type="button" class="waves-effect btn grey" routerLink="/types">Cancel</button>
+      <button type="submit" class="waves-effect btn">Save</button>
+    </div>
+  </form>
+</div>
