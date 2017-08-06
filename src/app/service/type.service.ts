@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {BaseAbstractService} from './base-abstract.service';
-import {AngularFireDatabase} from 'angularfire2/database';
+import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 
 @Injectable()
 export class TypeService extends BaseAbstractService {
@@ -9,4 +9,12 @@ export class TypeService extends BaseAbstractService {
     super('/types', db);
   }
 
+  getAllOrdered(): FirebaseListObservable<any[]> {
+    this.itemsDtoObs = this.db.list(this.context, {
+      query: {
+        orderByChild: 'name'
+      }
+    });
+    return this.itemsDtoObs;
+  }
 }

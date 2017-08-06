@@ -11,7 +11,7 @@ export class BrandComponent {
   itemsObs: FirebaseListObservable<BrandDto[]>;
 
   constructor(private brandService: BrandService) {
-    this.itemsObs = this.brandService.getAll();
+    this.itemsObs = this.brandService.getAllOrdered();
   }
 
   delete($event, $key: string) {

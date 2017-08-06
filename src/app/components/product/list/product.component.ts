@@ -25,10 +25,10 @@ export class ProductComponent implements OnInit {
     setTimeout(() => {
       this.productService.filterSubject.next(null);
     }, 10);
-    this.typeService.getAll().subscribe(types => {
+    this.typeService.getAllOrdered().subscribe(types => {
       this.types = types.map(type => type.name);
     });
-    this.brandService.getAll().subscribe(brands => {
+    this.brandService.getAllOrdered().subscribe(brands => {
       this.brands = brands.map(brand => brand.name);
     });
   }

@@ -11,7 +11,7 @@ export class TypeComponent {
   itemsObs: FirebaseListObservable<TypeDto[]>;
 
   constructor(private typeService: TypeService) {
-    this.itemsObs = this.typeService.getAll();
+    this.itemsObs = this.typeService.getAllOrdered();
   }
 
   delete($event, $key: string) {
